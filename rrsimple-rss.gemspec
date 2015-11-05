@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.date = "2010-07-06"
   s.summary = "A simple, flexible, extensible, and liberal RSS and Atom reader for Ruby. It is designed to be backwards compatible with the standard RSS parser, but will never do RSS generation."
   s.email = "rodrigo@rrmartins.com"
-  s.homepage = "http://github.com/cardmagic/simple-rss"
+  s.homepage = "http://github.com/rrmartins/simple-rss"
   s.description = "A simple, flexible, extensible, and liberal RSS and Atom reader for Ruby. It is designed to be backwards compatible with the standard RSS parser, but will never do RSS generation."
   s.has_rdoc = true
   s.authors = ["Lucas Carlson", "Rodrigo Martins"]

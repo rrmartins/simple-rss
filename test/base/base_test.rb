@@ -6,11 +6,11 @@ require 'pry'
 
 class BaseTest < Test::Unit::TestCase
   def setup
-    @rss_bbc = SimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc.xml')
-    @rss09 = SimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss09.rdf')
-    @rss20 = SimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss20.xml')
-    @media_rss = SimpleRSS.parse open(File.dirname(__FILE__) + '/../data/media_rss.xml')
-    @atom = SimpleRSS.parse open(File.dirname(__FILE__) + '/../data/atom.xml')
+    @rss_bbc = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc.xml')
+    @rss09 = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss09.rdf')
+    @rss20 = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss20.xml')
+    @media_rss = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/media_rss.xml')
+    @atom = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/atom.xml')
   end
   
   def test_channel
@@ -90,6 +90,6 @@ class BaseTest < Test::Unit::TestCase
   end
   
   def test_bad_feed
-    assert_raise(SimpleRSSError) { SimpleRSS.parse(open(File.dirname(__FILE__) + '/../data/not-rss.xml')) }
+    assert_raise(RRSimpleRSSError) { RRSimpleRSS.parse(open(File.dirname(__FILE__) + '/../data/not-rss.xml')) }
   end
 end

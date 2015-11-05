@@ -1,7 +1,7 @@
 require 'cgi'
 require 'time'
 
-class SimpleRSS
+class RRSimpleRSS
   VERSION = "1.3.2"
   
   attr_reader :items, :source
@@ -72,7 +72,7 @@ class SimpleRSS
   private
 
   def parse
-    raise SimpleRSSError, "Poorly formatted feed" unless @source =~ %r{<(channel|feed).*?>.*?</(channel|feed)>}mi
+    raise RRSimpleRSSError, "Poorly formatted feed" unless @source =~ %r{<(channel|feed).*?>.*?</(channel|feed)>}mi
     
     # Feed's title and link
     feed_content = $1 if @source =~ %r{(.*?)<(rss:|atom:)?(item|entry).*?>.*?</(rss:|atom:)?(item|entry)>}mi
@@ -164,5 +164,5 @@ class SimpleRSS
   end
 end
 
-class SimpleRSSError < StandardError
+class RRSimpleRSSError < StandardError
 end

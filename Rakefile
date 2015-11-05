@@ -5,12 +5,12 @@ require 'rake/testtask'
 require 'rdoc/task'
 require 'rubygems/package_task'
 require 'rake/contrib/rubyforgepublisher'
-require './lib/simple-rss'
+require './lib/rrsimple-rss'
 
-PKG_VERSION = SimpleRSS::VERSION
-PKG_NAME = "simple-rss"
+PKG_VERSION = RRSimpleRSS::VERSION
+PKG_NAME = "rrsimple-rss"
 PKG_FILE_NAME = "#{PKG_NAME}-#{PKG_VERSION}"
-RUBY_FORGE_PROJECT = "simple-rss"
+RUBY_FORGE_PROJECT = "rrsimple-rss"
 RUBY_FORGE_USER = ENV['RUBY_FORGE_USER'] || "cardmagic"
 RELEASE_NAME = "#{PKG_NAME}-#{PKG_VERSION}"
 
@@ -32,7 +32,7 @@ Rake::TestTask.new("test") { |t|
 # Make a console, useful when working on tests
 desc "Generate a test console"
 task :console do
-   verbose( false ) { sh "irb -I lib/ -r 'simple-rss'" }
+   verbose( false ) { sh "irb -I lib/ -r 'rrsimple-rss'" }
 end
 
 # Genereate the RDoc documentation
@@ -49,7 +49,7 @@ spec = Gem::Specification.new do |s|
 
   #### Basic information.
 
-  s.name = 'simple-rss'
+  s.name = 'rrsimple-rss'
   s.version = PKG_VERSION
   s.summary = <<-EOF
    A simple, flexible, extensible, and liberal RSS and Atom reader for Ruby. It is designed to be backwards compatible with the standard RSS parser, but will never do RSS generation.
@@ -72,9 +72,9 @@ spec = Gem::Specification.new do |s|
 
   #### Author and project details.
 
-  s.author = "Lucas Carlson"
-  s.email = "lucas@rufy.com"
-  s.homepage = "https://github.com/cardmagic/simple-rss"
+  s.author = "Rodrigo Martins"
+  s.email = "rodrigo@rrmartins.com"
+  s.homepage = "https://github.com/rrmartins/rrsimple-rss"
 end
 
 Gem::PackageTask.new(spec) do |pkg|
@@ -93,7 +93,7 @@ end
 
 desc "Publish new documentation"
 task :publish do
-    Rake::RubyForgePublisher.new('simple-rss', 'cardmagic').upload
+    Rake::RubyForgePublisher.new('rrsimple-rss', 'rrmartins').upload
 end
 
 
