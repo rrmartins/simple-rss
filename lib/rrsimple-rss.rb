@@ -2,17 +2,17 @@ require 'cgi'
 require 'time'
 
 class RRSimpleRSS
-  VERSION = "1.3.5"
-  
+  VERSION = "1.3.6"
+
   attr_reader :items, :source
   alias :entries :items
 
   @@feed_tags = [
     :id,
     :title, :subtitle, :link,
-    :description, 
+    :description,
     :author, :webMaster, :managingEditor, :contributor,
-    :pubDate, :lastBuildDate, :updated, :'dc:date',
+    :pubDate, :lastBuildDate, :updated, :'dc:date', :'dc:subject',
     :generator, :language, :docs, :cloud,
     :ttl, :skipHours, :skipDays,
     :image, :logo, :icon, :rating,
@@ -26,7 +26,7 @@ class RRSimpleRSS
     :title, :link, :'link+alternate', :'link+self', :'link+edit', :'link+replies',
     :author, :contributor,
     :description, :summary, :content, :'content:encoded', :comments,
-    :pubDate, :published, :updated, :expirationDate, :modified, :'dc:date',
+    :pubDate, :published, :updated, :expirationDate, :modified, :'dc:date', :'dc:subject',
     :category, :categories, :guid,
     :'trackback:ping', :'trackback:about',
     :'dc:creator', :'dc:title', :'dc:subject', :'dc:rights', :'dc:publisher',
@@ -41,7 +41,7 @@ class RRSimpleRSS
     @source = source.respond_to?(:read) ? source.read : source.to_s
     @items = Array.new
     @options = Hash.new.update(options)
-    
+
     parse
   end
 
@@ -73,10 +73,10 @@ class RRSimpleRSS
 
   def parse
     raise RRSimpleRSSError, "Poorly formatted feed" unless @source =~ %r{<(channel|feed).*?>.*?</(channel|feed)>}mi
-    
+
     # Feed's title and link
     feed_content = $1 if @source =~ %r{(.*?)<(rss:|atom:)?(item|entry).*?>.*?</(rss:|atom:)?(item|entry)>}mi
-    
+
     @@feed_tags.each do |tag|
       if feed_content && feed_content =~ %r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi
         nil
@@ -87,14 +87,14 @@ class RRSimpleRSS
       elsif @source =~ %r{<(rss:|atom:)?#{tag}(.*?)\/\s*>}mi
         nil
       end
-      
+
       if $2 || $3
         tag_cleaned = clean_tag(tag)
         instance_variable_set("@#{ tag_cleaned }", clean_content(tag, $2, $3))
         self.class.class_eval("attr_reader :#{ tag_cleaned }")
       end
     end
-    
+
     # RSS items' title, link, and description
     @source.scan( %r{<(rss:|atom:)?(item|entry)([\s][^>]*)?>(.*?)</(rss:|atom:)?(item|entry)>}mi ) do |match|
       item = Hash.new
@@ -103,13 +103,13 @@ class RRSimpleRSS
           tag_data = tag.to_s.split("+")
           tag = tag_data[0]
           rel = tag_data[1]
-          
+
           if match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)rel=['"]#{rel}['"](.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi
             nil
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)rel=['"]#{rel}['"](.*?)/\s*>}mi
             nil
           end
-          
+
           item[clean_tag("#{tag}+#{rel}")] = clean_content(tag, $3, $4) if $3 || $4
         elsif tag.to_s.include?("#")
           tag_data = tag.to_s.split("#")
@@ -120,7 +120,7 @@ class RRSimpleRSS
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)#{attrib}=['"](.*?)['"](.*?)/\s*>}mi
             nil
           end
-          
+
           item[clean_tag("#{tag}_#{attrib}")] = clean_content(tag, attrib, $3) if $3
         else
           if match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi
@@ -128,14 +128,15 @@ class RRSimpleRSS
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)/\s*>}mi
             nil
           end
-          
-          if tag == :category || tag == :keywords
+
+          if tag == :category
             item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
+          elsif tag == :keywords
+            item[tag] = match[3].scan(%r{<(rss:|atom:)?dc:subject rdf:type="keywords"(.*?)>(.*?)<\/(rss:|atom:)?dc:subject>}mi).map {|x| x[2].gsub(";", ",") }
           else
-            # binding.pry if tag == :link
             item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
           end
-          
+
         end
       end
 
@@ -158,7 +159,7 @@ class RRSimpleRSS
       when :author, :contributor, :skipHours, :skipDays
         unescape(content.gsub(/<.*?>/,''))
       when :"full-text"
-        CGI.unescapeHTML unescape(content.gsub(/<.*?>/,'')).force_encoding("UTF-8")        
+        CGI.unescapeHTML unescape(content.gsub(/<.*?>/,'')).force_encoding("UTF-8")
       when :link
         "#{attrs} " =~ /href=['"]?([^'"]*)['" ]/mi
         $1
@@ -170,7 +171,7 @@ class RRSimpleRSS
   def clean_tag(tag)
     tag != :'full-text' ? tag.to_s.gsub(':','_').intern : tag.to_s.gsub('-','_').intern
   end
-  
+
   def unescape(content)
     if content.respond_to?(:force_encoding) && content.force_encoding("binary") =~ /([^-_.!~*'()a-zA-Z\d;\/?:@&=+$,\[\]]%)/n then
       CGI.unescape(content).gsub(/(<!\[CDATA\[|\]\]>)/,'').strip
