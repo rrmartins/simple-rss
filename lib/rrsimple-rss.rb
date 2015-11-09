@@ -2,7 +2,7 @@ require 'cgi'
 require 'time'
 
 class RRSimpleRSS
-  VERSION = "1.3.3"
+  VERSION = "1.3.4"
   
   attr_reader :items, :source
   alias :entries :items
@@ -18,7 +18,7 @@ class RRSimpleRSS
     :image, :logo, :icon, :rating,
     :rights, :copyright,
     :textInput, :'feedburner:browserFriendly',
-    :'itunes:author', :'itunes:category', :"full-text"
+    :'itunes:author', :'itunes:category', :"full-text", :categories, :keywords
   ]
 
   @@item_tags = [
@@ -27,14 +27,14 @@ class RRSimpleRSS
     :author, :contributor,
     :description, :summary, :content, :'content:encoded', :comments,
     :pubDate, :published, :updated, :expirationDate, :modified, :'dc:date',
-    :category, :guid,
+    :category, :categories, :guid,
     :'trackback:ping', :'trackback:about',
     :'dc:creator', :'dc:title', :'dc:subject', :'dc:rights', :'dc:publisher',
     :'feedburner:origLink',
     :'media:content#url', :'media:content#type', :'media:content#height', :'media:content#width',
     :'media:title', :'media:thumbnail#url', :'media:thumbnail#height', :'media:thumbnail#width',
     :'media:credit', :'media:credit#role',
-    :'media:category', :'media:category#scheme', :"full-text"
+    :'media:category', :'media:category#scheme', :"full-text", :keywords
   ]
 
   def initialize(source, options={})
@@ -109,6 +109,7 @@ class RRSimpleRSS
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)rel=['"]#{rel}['"](.*?)/\s*>}mi
             nil
           end
+          
           item[clean_tag("#{tag}+#{rel}")] = clean_content(tag, $3, $4) if $3 || $4
         elsif tag.to_s.include?("#")
           tag_data = tag.to_s.split("#")
@@ -119,6 +120,7 @@ class RRSimpleRSS
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)#{attrib}=['"](.*?)['"](.*?)/\s*>}mi
             nil
           end
+          
           item[clean_tag("#{tag}_#{attrib}")] = clean_content(tag, attrib, $3) if $3
         else
           if match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi
@@ -126,7 +128,13 @@ class RRSimpleRSS
           elsif match[3] =~ %r{<(rss:|atom:)?#{tag}(.*?)/\s*>}mi
             nil
           end
-          item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
+          
+          if tag == :category || tag == :keywords
+            item[:categories] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
+          else
+            item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
+          end
+          
         end
       end
 
@@ -135,6 +143,10 @@ class RRSimpleRSS
       @items << item
     end
 
+  end
+
+  def category(str)
+    str.include?("CDATA") ? str[9..str.length-4] : str    
   end
 
   def clean_content(tag, attrs, content)

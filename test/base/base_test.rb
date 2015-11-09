@@ -6,7 +6,9 @@ require 'pry'
 
 class BaseTest < Test::Unit::TestCase
   def setup
+    @rss_prnews = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/prnews.xml')
     @rss_bbc = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc.xml')
+    @rss_baboo = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/baboo.xml')
     @rss09 = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss09.rdf')
     @rss20 = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss20.xml')
     @media_rss = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/media_rss.xml')
@@ -18,15 +20,45 @@ class BaseTest < Test::Unit::TestCase
     assert_equal @rss09, @rss09.channel
     assert_equal @rss20, @rss20.channel
     assert_equal @atom, @atom.feed
+    assert_equal @rss_baboo, @rss_baboo.feed
+    assert_equal @rss_prnews, @rss_prnews.feed
   end
   
   def test_items
+    assert_kind_of Array, @rss_baboo.items
     assert_kind_of Array, @rss_bbc.items
     assert_kind_of Array, @rss09.items
     assert_kind_of Array, @rss20.items
     assert_kind_of Array, @atom.entries
+    assert_kind_of Array, @rss_prnews.items
   end
   
+  def test_rss_prnews
+    assert_equal 20, @rss_prnews.items.size
+    assert_equal "PR Newswire Releases", @rss_prnews.title.force_encoding("UTF-8")
+    assert_equal "http://www.prnewswire.com/news-releases/sva-promove-exposicao-de-cartazes-que-retrata-a-evolucao-do-design-grafico-nos-ultimos-70-anos-540199401.html", @rss_prnews.channel.link
+    assert_equal "http://www.prnewswire.com/news-releases/sva-promove-exposicao-de-cartazes-que-retrata-a-evolucao-do-design-grafico-nos-ultimos-70-anos-540199401.html", @rss_prnews.items.first.link
+    assert_equal "http://www.prnewswire.com/news-releases/sva-promove-exposicao-de-cartazes-que-retrata-a-evolucao-do-design-grafico-nos-ultimos-70-anos-540199401.html", @rss_prnews.items.first[:link]
+    assert_equal Time.parse("2015-11-04 15:30:00 -0200"), @rss_prnews.items.first.pubDate
+    assert_equal Time.parse("2015-11-09 11:55:45 -0200"), @rss_prnews.channel.lastBuildDate
+    assert_nil @rss_prnews.items.first.full_text
+    assert_not_nil @rss_prnews.items.first.description
+    assert_kind_of Array, @rss_prnews.items.first.categories
+  end
+
+  def test_rss_baboo
+    assert_equal 21, @rss_baboo.items.size
+    assert_equal "BABOO", @rss_baboo.title.force_encoding("UTF-8")
+    assert_equal "http://www.baboo.com.br", @rss_baboo.channel.link
+    assert_equal "http://www.baboo.com.br/internet/lista-do-procon-sp-com-lojas-online-que-devem-ser-evitadas-e-atualizada/", @rss_baboo.items.first.link
+    assert_equal "http://www.baboo.com.br/internet/lista-do-procon-sp-com-lojas-online-que-devem-ser-evitadas-e-atualizada/", @rss_baboo.items.first[:link]
+    assert_equal Time.parse("2015-11-05 14:11:24 -0200"), @rss_baboo.items.first.pubDate
+    assert_equal Time.parse("2015-11-05 14:11:24 -0200"), @rss_baboo.channel.lastBuildDate
+    assert_nil @rss_baboo.items.first.full_text
+    assert_not_nil @rss_baboo.items.first.description
+    assert_kind_of Array, @rss_baboo.items.first.categories
+  end
+
   def test_rss_bbc
     assert_equal 9, @rss_bbc.items.size
     assert_equal "BBCBrasil.com | Vídeos e Fotos", @rss_bbc.title.force_encoding("UTF-8")
@@ -36,6 +68,7 @@ class BaseTest < Test::Unit::TestCase
     assert_equal Time.parse("2015-11-03 08:21:50 -0200"), @rss_bbc.items.first.pubDate
     assert_equal Time.parse("2015-11-05 07:33:38 -0200"), @rss_bbc.channel.lastBuildDate
     assert_not_nil @rss_bbc.items.first.full_text
+    assert_kind_of Array, @rss_bbc.items.first.categories
   end
 
   def test_rss09
@@ -47,6 +80,7 @@ class BaseTest < Test::Unit::TestCase
     assert_equal Time.parse("2005-09-09 06:52:31 -0300"), @rss09.items.first.dc_date
     assert_equal Time.parse("Fri Sep 09 02:52:31 PDT 2005"), @rss09.channel.dc_date
     assert_nil @rss09.items.first.full_text
+    assert_kind_of Array, @rss09.items.first.categories
   end
 
   def test_media_rss
@@ -68,6 +102,7 @@ class BaseTest < Test::Unit::TestCase
     assert_equal "pets frodo", @media_rss.items.first.media_category
     assert_equal "urn:flickr:tags", @media_rss.items.first.media_category_scheme
     assert_nil @media_rss.items.first.full_text
+    assert_kind_of Array, @media_rss.items.first.categories
   end
   
   def test_rss20
@@ -78,6 +113,7 @@ class BaseTest < Test::Unit::TestCase
     assert_equal "http://feeds.feedburner.com/rufytech?m=68", @rss20.items.first[:link]
     assert_equal "This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site.", @rss20.channel.feedburner_browserFriendly
     assert_nil @rss20.items.first.full_text
+    assert_kind_of Array, @rss20.items.first.categories
   end
   
   def test_atom
@@ -87,6 +123,7 @@ class BaseTest < Test::Unit::TestCase
     assert_equal "http://example.org/2005/04/02/atom", @atom.entries.first.link
     assert_equal "http://example.org/2005/04/02/atom", @atom.entries.first[:link]
     assert_nil @atom.entries.first.full_text
+    assert_kind_of Array, @atom.entries.first.categories
   end
   
   def test_bad_feed
