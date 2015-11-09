@@ -2,7 +2,7 @@ require 'cgi'
 require 'time'
 
 class RRSimpleRSS
-  VERSION = "1.3.4"
+  VERSION = "1.3.5"
   
   attr_reader :items, :source
   alias :entries :items
@@ -130,7 +130,7 @@ class RRSimpleRSS
           end
           
           if tag == :category || tag == :keywords
-            item[:categories] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
+            item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
           else
             item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
           end
@@ -146,7 +146,7 @@ class RRSimpleRSS
   end
 
   def category(str)
-    str.include?("CDATA") ? str[9..str.length-4] : str    
+    str.include?("CDATA") ? str[9..str.length-4] : str
   end
 
   def clean_content(tag, attrs, content)
