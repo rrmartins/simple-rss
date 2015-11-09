@@ -132,6 +132,7 @@ class RRSimpleRSS
           if tag == :category || tag == :keywords
             item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
           else
+            # binding.pry if tag == :link
             item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
           end
           
@@ -158,6 +159,9 @@ class RRSimpleRSS
         unescape(content.gsub(/<.*?>/,''))
       when :"full-text"
         CGI.unescapeHTML unescape(content.gsub(/<.*?>/,'')).force_encoding("UTF-8")        
+      when :link
+        "#{attrs} " =~ /href=['"]?([^'"]*)['" ]/mi
+        $1
       else
         content.empty? && "#{attrs} " =~ /href=['"]?([^'"]*)['" ]/mi ? $1.strip : unescape(content)
     end

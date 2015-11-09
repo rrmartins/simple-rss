@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed 
+    xmlns="http://www.w3.org/2005/Atom" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/" 
+    xmlns:dcterms="http://purl.org/dc/terms/" 
+    xmlns:media="http://search.yahoo.com/mrss/" 
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <id>http://www.bbc.com/portuguese/full_all.xml</id>
+    <title xml:lang="pt-BR">BBCBrasil.com | Notícias</title>
+    <updated>2015-11-09T13:29:35-02:00</updated>
+    <link href="http://www.bbc.com/portuguese/full_all.xml" rel="self"/>
+    <author>
+        <name>BBC Brasil</name>
+        <email>portuguese@bbc.co.uk</email>
+        <uri>http://www.bbcbrasil.com</uri>
+    </author>
+    <generator>http://www.bbcbrasil.com</generator>
+    <category label="portuguese" term="portuguese" xml:lang="pt-BR"/>
+    <category label="Notícias" term="" xml:lang="pt-BR"/>
+    <logo>http://www.bbc.co.uk/portuguese/images/gel/rss_logo.gif</logo>
+    <rights xml:lang="pt-BR">Copyright British Broadcasting Corporation 2015</rights>
+    <entry>
+        <id>tag:www.bbcbrasil.com,2015-11-09:41252477</id>
+        <dc:identifier>41252477</dc:identifier>
+        <updated>2015-11-09T16:40:33-02:00</updated>
+        <published>2015-11-09T13:16:44-02:00</published>
+        <category label="portuguese" term="portuguese" xml:lang="pt-BR"/>
+        <category label="Notícias" term="news" xml:lang="pt-BR"/>
+        <rights>not restricted</rights>
+        <title xml:lang="pt-BR">Após vencer concurso polêmico, brasileiro passa noite nas catacumbas de Paris</title>
+        <summary xml:lang="pt-BR">Advogado mineiro e sua mãe foram levados por Airbnb a 'maior túmulo do mundo'; integrantes de conselho parisiense chegaram a apelar contra iniciativa, mas foram vencidos.</summary>
+        <dc:subject rdf:type="keywords" xml:lang="pt">internacional; frança; paris; catacumba; airbnb; hospedagem; turismo; promoção</dc:subject>
+        <dc:subject rdf:type="topics" xml:lang="pt">Internacional</dc:subject>
+        <link href="http://www.bbc.com/portuguese/noticias/2015/11/151109_catacumbas_paris_brasileiro_cc" rel="alternate" title="story" type="text/html">
+            <media:content>
+                <media:thumbnail height="60" url="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109173448_sp_pedro_catacumbas_640x360_ap_nocredit.jpg" width="106">
+                    <img alt="Foto: AP" height="60" src="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109173448_sp_pedro_catacumbas_640x360_ap_nocredit.jpg" width="106"/>
+                </media:thumbnail>
+                <media:thumbnail height="81" url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109173447_sp_pedro_catacumbas_144x81_ap_nocredit.jpg" width="144">
+                    <img alt="Foto: AP" height="81" src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109173447_sp_pedro_catacumbas_144x81_ap_nocredit.jpg" width="144"/>
+                </media:thumbnail>
+            </media:content>
+        </link>
+        <dcterms:alternative>Brasileiro passa noite nas catacumbas de Paris</dcterms:alternative>
+        <dc:type>Text</dc:type>
+        <content type="xhtml" xml:lang="pt-BR">
+            <div 
+                xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+                <p>Um brasileiro foi o vencedor do controverso concurso do site de hospedagem Airbnb, que ofereceu a possibilidade de dormir uma noite nas catacumbas de Paris no dia 31 de outubro, o Dia das Bruxas.</p>
+                <p>De volta ao Brasil após uma semana na capital francesa, o advogado mineiro Pedro Arruda, de 27 anos, diz que a experiência foi "impressionante" e mais engraçada do que amedrontadora.</p>
+                <p>Para vencer o que ele diz terem sido 27 mil participantes de todo o mundo, Pedro fez piada quanto a se era "corajoso" o suficiente para ser a primeira pessoa a acordar nas catacumbas, onde estão guardados os restos mortais de 6 milhões de pessoas.</p>
+                <p>"Eu disse basicamente que fui uma criança muito corajosa: tomava suco de laranja após escovar os dentes e, quando minha mãe dizia que não queria ouvir mais uma palavra minha, eu respondia: 'palavra'– era para ser uma resposta engraçada mesmo", disse à BBC Brasil.</p>
+                <p>
+                    <a href="http://www.bbc.com/portuguese/noticias/2015/11/151103_sefarditas_cidadania_lei_mf.shtml">
+
+Leia também: Saiba como lei portuguesa pode dar cidadania a brasileiros descendentes de judeus</a>
+                </p>
+                <p>
+                    <a href="http://www.bbc.com/portuguese/noticias/2015/11/151103_perguntas_oxford_lab.shtml">
+
+Leia também: Arqueologia pode desmentir a Bíblia? As inesperadas perguntas do teste de Oxford</a>
+                </p>
+                <p>Quando o Airbnb anunciou o concurso, líderes da oposição do conselho da cidade recorreram à prefeita Anne Hidalgo pedindo que ela não esquecesse de uma lei francesa que estabelece "devido respeito ao corpo humano mesmo após a morte".</p>
+                <p>A empresa afirmou que garantiria "a segurança e o respeito pelas catacumbas" e que, em troca de poder hospedar duas pessoas por uma noite no local, fez uma doação à prefeitura parisiense, "com intuito de ajudar no financiamento das obras de renovação das catacumbas".</p>
+                <p>Segundo a agência de notícias AP, o valor da doação teria sido cerca de 300 mil euros (R$ 1,2 milhão). À BBC Brasil, o Airbnb confirmou a doação, mas optou por não revelar o valor.</p>
+                <p>
+                    <a href="http://www.bbc.com/portuguese/noticias/2015/10/151015_airbnb_catacumbas_paris_rb.shtml">
+
+Leia mais: Airbnb cria polêmica ao oferecer hospedagem nas catacumbas de Paris, o 'maior túmulo do mundo'</a>
+                </p>
+                <p/>
+                <h2>'Impressionante'</h2>
+                <p>Os restos mortais que se encontram depositados nas catacumbas foram sendo levados pouco a pouco para o subsolo entre o final do século 18 e meados do século 19, quando os cemitérios superlotados de Paris foram fechados por questões de saúde pública.</p>
+                <p>Por causa disso, as catacumbas abrigam milhões de ossos organizados como se fossem um "retrato da morte", segundo algumas descrições do local.</p>
+                <p>"Chegar nas catacumbas é impressionante, pela quantidade de ossos nas paredes e o jeito como eles são arrumados. Realmente eu não esperava que fosse ser assim", disse o advogado.</p>
+                <p>"Chega até a ser bonito, parece uma obra de arte."</p>
+                <p>As catacumbas são parte de uma enorme rede de túneis existente nas entranhas de Paris, formada pela extração de calcário e gesso a partir da época romana para serem usados na construção da cidade.</p>
+                <p>Apenas uma parte do labirinto de túneis é aberta ao público, e visitantes precisam descer 20 m sob o solo para visitar o local onde estão os ossos.</p>
+                <p>
+                    <a href="http://www.bbc.com/portuguese/noticias/2015/11/151109_vinte_cancoes_spotify_fd.shtml">
+
+Leia também: As 20 melhores músicas para acordar, segundo o Spotify e a ciência</a>
+                </p>
+                <p/>
+                <p>Foi aí que Pedro e sua mãe Monica, de 54 anos, –que o acompanhou na viagem "pela aventura", segundo ele – passaram a noite. "Era bem frio lá embaixo, fazia cerca de 13ºC", conta.</p>
+                <p>Além da hospedagem, eles tiveram um jantar de culinária francesa no "maior túmulo do mundo" e foram entretidos no por um contador de histórias profissional, contratado para deixá-los no clima do Dia das Bruxas com histórias assustadoras. Esta última parte, no entanto, não fez muito efeito, de acordo com o mineiro.</p>
+                <p>"A situação era tão anormal que ficava mais engraçado do que qualquer coisa. Eu acabei batendo papo com ele sobre literatura", diz.</p>
+            </div>
+        </content>
+    </entry>
+    <entry>
+        <id>tag:www.bbcbrasil.com,2015-11-09:41254771</id>
+        <dc:identifier>41254771</dc:identifier>
+        <updated>2015-11-09T16:20:55-02:00</updated>
+        <published>2015-11-09T15:52:16-02:00</published>
+        <category label="portuguese" term="portuguese" xml:lang="pt-BR"/>
+        <category label="Notícias" term="news" xml:lang="pt-BR"/>
+        <rights>not restricted</rights>
+        <title xml:lang="pt-BR">Vídeo mostra resgate de vítimas presas em rochedo na Austrália</title>
+        <summary xml:lang="pt-BR">Turistas escorregaram na borda de penhasco e precisaram de socorro para sair.</summary>
+        <dc:subject rdf:type="keywords" xml:lang="pt">internacional; australia; helicoptero; rochedo; bolo de noiva</dc:subject>
+        <dc:subject rdf:type="topics" xml:lang="pt">Internacional</dc:subject>
+        <link href="http://www.bbc.com/portuguese/noticias/2015/11/151109_resgate_australia_lk" rel="alternate" title="video" type="text/html">
+            <media:content>
+                <media:thumbnail height="60" url="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109174934_australia_rescue_640x360_reuters_nocredit.jpg" width="106">
+                    <img alt="" height="60" src="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109174934_australia_rescue_640x360_reuters_nocredit.jpg" width="106"/>
+                </media:thumbnail>
+                <media:thumbnail height="81" url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109174933_australia_rescue_144x81_reuters_nocredit.jpg" width="144">
+                    <img alt="" height="81" src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109174933_australia_rescue_144x81_reuters_nocredit.jpg" width="144"/>
+                </media:thumbnail>
+            </media:content>
+            <media:content bitrate="168000" duration="PT49S" expression="full" fileSize="1243332" medium="video" type="video/mp4" url="http://wsodprogrf.bbc.co.uk/portuguese/dps/2015/11/resgate_penhasco_16x9_lo.mp4"/>
+            <media:content bitrate="320000" duration="PT49S" expression="full" fileSize="2470997" medium="video" type="video/mp4" url="http://wsodprogrf.bbc.co.uk/portuguese/dps/2015/11/resgate_penhasco_16x9_med.mp4"/>
+            <media:content bitrate="904000" duration="PT49S" expression="full" fileSize="5952183" medium="video" type="video/mp4" url="http://wsodprogrf.bbc.co.uk/portuguese/dps/2015/11/resgate_penhasco_16x9_hi.mp4"/>
+            <media:embed>
+                <media:param name="flashVars">playlist=http://www.bbc.co.uk/portuguese/meta/dps/2015/11/emp/151109_resgate_australia_lk.emp.xml</media:param>
+            </media:embed>
+        </link>
+        <dcterms:alternative>Vídeo mostra resgate de vítimas presas em rochedo</dcterms:alternative>
+        <dc:type>Text</dc:type>
+        <content type="xhtml" xml:lang="pt-BR">
+            <div 
+                xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+                <p>Dois homens ficaram presos em um rochedo famoso na Austrália, conhecido como Bolo de Noiva, e tiveram de ser resgatados.</p>
+                <p>Um deles escorregou na borda do penhasco e caiu em uma reentrância da pedra. Seu colega tentou socorrê-lo e também acabou preso.</p>
+                <p>Autoridades locais chegaram de helicóptero para fazer o resgate.</p>
+            </div>
+        </content>
+    </entry>
+    <entry>
+        <id>tag:www.bbcbrasil.com,2015-11-09:41251459</id>
+        <dc:identifier>41251459</dc:identifier>
+        <updated>2015-11-09T16:09:42-02:00</updated>
+        <published>2015-11-09T12:33:58-02:00</published>
+        <category label="portuguese" term="portuguese" xml:lang="pt-BR"/>
+        <category label="Notícias" term="news" xml:lang="pt-BR"/>
+        <rights>not restricted</rights>
+        <title xml:lang="pt-BR">Brasileiros viciados em games se tornam empresários de sucesso antes dos 18 anos</title>
+        <summary xml:lang="pt-BR">Henrique Dubrugras e Pedro Franceschi se conheceram pela internet e criaram um sistema de pagamentos online que movimenta milhões de dólares. </summary>
+        <dc:subject rdf:type="keywords" xml:lang="pt">tecnologia; brasileiros; viciados; games; pagamentos online; pagar.me</dc:subject>
+        <dc:subject rdf:type="topics" xml:lang="pt">Ciência e Tecnologia</dc:subject>
+        <link href="http://www.bbc.com/portuguese/noticias/2015/11/151109_games_empresa_rm" rel="alternate" title="story" type="text/html">
+            <media:content>
+                <media:thumbnail height="60" url="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109152236_empresarios_pagar_me_640x360_fernandoperecin_nocredit.jpg" width="106">
+                    <img alt="" height="60" src="http://ichef.bbci.co.uk/wsimagechef/ic/106x60/amz/worldservice/live/assets/images/2015/11/09/151109152236_empresarios_pagar_me_640x360_fernandoperecin_nocredit.jpg" width="106"/>
+                </media:thumbnail>
+                <media:thumbnail height="81" url="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109152235_empresarios_pagar_me_144x81_fernandoperecin_nocredit.jpg" width="144">
+                    <img alt="" height="81" src="http://a.files.bbci.co.uk/worldservice/live/assets/images/2015/11/09/151109152235_empresarios_pagar_me_144x81_fernandoperecin_nocredit.jpg" width="144"/>
+                </media:thumbnail>
+            </media:content>
+        </link>
+        <dcterms:alternative>Brasileiros viciados em games se tornam empresários</dcterms:alternative>
+        <dc:type>Text</dc:type>
+        <content type="xhtml" xml:lang="pt-BR">
+            <div 
+                xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+                <div class="byline">
+                    <div class="description"/>
+                    <div class="person">
+                        <p class="name">Luana Ferreira</p>
+                        <p class="role">De São Paulo para a BBC News</p>
+                    </div>
+                </div>
+                <div class="bbc-image" itemscope="itemscope" itemtype="http://schema.org/ImageObject">
+                    <img alt="" height="147" itemprop="contentUrl" src="http://ichef.bbci.co.uk/wsimagechef/ic/261x147/amz/worldservice/live/assets/images/2015/11/09/151109152236_empresarios_pagar_me_624x351_fernandoperecin_nocredit.jpg" width="261"/>
+                    <p class="bbc-caption">Henrique (à direita) e Pedro (à esquerda) começaram uma parceria pela internet e hoje movimentam um negócio valorizado internacionalmente</p>
+                    <meta content="Fernando Perecin" itemprop="copyrightHolder"/>
+                </div>
+                <p>Henrique Dubrugras, de 19 anos, e Pedro Franceschi, 18, costumavam passar pelo menos um terço do dia jogando videogame, com os olhos grudados na tela do computador.</p>
+                <p>Hoje, a rotina dos dois jovens mudou um pouco, e o que era brincadeira virou coisa séria: eles abriram um negócio e, com menos de 20 anos de idade, já estão fazendo sucesso no mercado.</p>
+                <p>Viciados em games desde crianças, Henrique e Pedro se conheceram pela internet e, dois anos atrás, montaram a start-up Pagar.me –, fornecedora de um sistema de pagamento online que hoje tem 30 funcionários e cerca de 200 clientes. Eles ganharam prêmios e atraíram R$ 1 milhão em investimento estrangeiro.</p>
+                <p>
+                    <a href="http://www.bbc.co.uk/portuguese/noticias/2015/11/151109_vinte_cancoes_spotify_fd">
+
+Leia mais: As 20 melhores músicas para acordar, segundo o Spotify e a ciência</a>
+                </p>
+                <p>Curtiu? 
+                    <a href="www.facebook.com/bbcbrasil">
+
+Siga a BBC Brasil no Facebook</a>
+                </p>
+                <p>O sistema funciona de forma semelhante ao Paypal e visa simplificar o cadastro, o pagamento e a aprovação de compras feitas online.</p>
+                <p>O Pagar.me fica com 1,5% do valor de cada compra, mais uma taxa de 50 centavos. Os clientes também pagam uma comissão que varia de 3% a 5% para a empresa.</p>
+                <p>"As pessoas não imaginavam que nós pudéssemos criar algo tão inovador", disse Henrique à BBC.</p>
+                <h2>Início</h2>
+                <p>A dupla se conheceu justamente por causa do seu interesse por games.</p>
+                <p>Henrique tinha 12 anos e gostava de um jogo coreano chamado Ragnarok, mas seus pais não queriam pagar pela licença do game. Ele decidiu, então, programar sua própria versão do jogo.</p>
+                <div class="bbc-image" itemscope="itemscope" itemtype="http://schema.org/ImageObject">
+                    <img alt="" height="147" itemprop="contentUrl" src="http://ichef.bbci.co.uk/wsimagechef/ic/261x147/amz/worldservice/live/assets/images/2015/11/09/151109152350_empresarios_pagar_me_2_624x351_fernandoperecin_nocredit.jpg" width="261"/>
+                    <p class="bbc-caption">O vício em games levou os dois ao sucesso nos negócios de programação; mesmo liderando equipe com gente mais velha, eles afirmam que não enfrentam problemas com isso</p>
+                    <meta content="Fernando Perecin" itemprop="copyrightHolder"/>
+                </div>
+                <p/>
+                <p>Com um novo servidor hospedando o jogo criado por ele, Henrique passou a atrair milhares de
+                    <em> gamers</em> para jogar a sua versão do Ragnarok – pagando por isso. E foi aí que ele começou a ganhar dinheiro com seu maior vício.
+                </p>
+                <p>"Eu costumava fazer meus próprios servidores, porque aí eu não precisava pagar pela versão original do jogo".</p>
+                <p>
+                    <a href="http://www.bbc.co.uk/portuguese/noticias/2015/11/151108_violencia_mapa_brasil_2015_fd">
+
+Leia também: 18 anos: a idade mais perigosa para mulheres no Brasil</a>
+                </p>
+                <p>Já o cofundador da empresa, Pedro Franceschi, teve um início ainda mais precoce no mundo da programação: aos 9 anos. Aos 12, conseguiu desbloquear o iPhone 3 no Brasil e, pouco tempo depois, aos 15 anos, fez a assistente da Apple, Siri, falar português.</p>
+                <p>Henrique e Pedro se conheceram via Twitter quando o primeiro tinha 17 anos e o segundo, 16. Eles participavam de um debate online sobre diferentes tipos de programação de softwares.</p>
+                <p>"Foi ali que nossa amizade começou. Eu ganhei a discussão e, ao mesmo tempo, um sócio", disse Henrique.</p>
+                <p>Mas os dois moravam em cidades diferentes – Henrique em São Paulo e Pedro no Rio de Janeiro. Então, no início, a parceria era só online.</p>
+                <h2>Dilemas de adolescentes</h2>
+                <p>Com idade parecida, tanto Henrique quanto Pedro viviam os mesmos dilemas de adolescência - por exemplo, como convidar sobre como chamar uma garota da escola para sair sem ficar constrangido, caso a resposta seja "não", ao olhar para no dia seguinte na sala de aula.</p>
+                <p>Foi então que, em uma maratona de programadores (Hackaton), a equipe de Henrique teve a ideia de um aplicativo chamado AskMeOut. Ele funcionaria como o Tinder para conectar pessoas próximas interessadas em encontros amorosos. Com essa proposta, eles conquistaram o primeiro lugar e um prêmio de R$ 50 mil.</p>
+                <p>Depois disso, Henrique percebeu que homens e mulheres estavam usando o aplicativo de formas diferentes – enquanto mulheres eram mais seletivas, homens costumavam clicar e "curtir" a maioria das mulheres que apareciam na lista. A solução, então, foi cobrar dos usuários homens do aplicativo – como cada "like" precisava ser pago, eles ficaram mais seletivos também.</p>
+                <div class="bbc-image" itemscope="itemscope" itemtype="http://schema.org/ImageObject">
+                    <img alt="" height="147" itemprop="contentUrl" src="http://ichef.bbci.co.uk/wsimagechef/ic/261x147/amz/worldservice/live/assets/images/2015/11/09/151109152528_empresarios_pagar_me_3_624x351_fernandoperecin_nocredit.jpg" width="261"/>
+                    <p class="bbc-caption">'Nós acreditamos que bons líderes são aqueles que atingem suas metas junto com a equipe. Não é uma questão de gênero, qualificação ou idade', disse Henrique</p>
+                    <meta content="Fernando Perecin" itemprop="copyrightHolder"/>
+                </div>
+                <p/>
+                <p>O AskMeOut deu certo, mas Henrique queria um sistema de pagamento melhor para o aplicativo. Coincidentemente, nesse momento ele conheceu Pedro e, juntos, eles pensaram na solução – que viria ser o Pagar.me.</p>
+                <h2>Sucesso</h2>
+                <p>Nascido da parceria entre dois adolescentes, hoje o Pagar.me emprega funcionários de idades entre 16 e 45 anos. Ainda assim, de acordo com os cofundadores, a "juventude" dos donos da empresa não atrapalha a relação deles com a equipe.</p>
+                <p>
+                    <a href="http://www.bbc.co.uk/portuguese/noticias/2015/11/151105_executiva_india_ab">
+
+Leia também: A indiana que venceu o preconceito e ergueu um conglomerado empresarial</a>
+                </p>
+                <p>"Acreditamos que bons líderes são aqueles que atingem suas metas junto com a equipe. Não é uma questão de gênero, qualificação ou idade", disse Henrique.</p>
+                <p>"Liderar um negócio é uma coisa complicada, mas sempre tivemos sorte de sermos guiados por pessoas que admiramos nos momentos mais difíceis – algo que nos salvou várias vezes durante a evolução da empresa", acrescentou.</p>
+                <p>"Na realidade, nós ainda somos adolescentes. Gostamos de jogar videogame e de sair com os amigos. É cada vez mais comum as pessoas buscarem suas ambições cada vez mais cedo. Somos apenas duas pessoas normais que tocam um negócio."</p>
+            </div>
+        </content>
+    </entry>
+</feed>
