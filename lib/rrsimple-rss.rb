@@ -2,7 +2,7 @@ require 'cgi'
 require 'time'
 
 class RRSimpleRSS
-  VERSION = "1.3.6"
+  VERSION = "1.3.8"
 
   attr_reader :items, :source
   alias :entries :items
