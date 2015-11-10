@@ -9,7 +9,7 @@ class RRSimpleRSS
 
   @@feed_tags = [
     :id,
-    :title, :subtitle, :link,
+    :title, :subtitle, :link, :linkbbc,
     :description,
     :author, :webMaster, :managingEditor, :contributor,
     :pubDate, :lastBuildDate, :updated, :'dc:date', :'dc:subject',
@@ -23,7 +23,7 @@ class RRSimpleRSS
 
   @@item_tags = [
     :id,
-    :title, :link, :'link+alternate', :'link+self', :'link+edit', :'link+replies',
+    :title, :link, :linkbbc, :'link+alternate', :'link+self', :'link+edit', :'link+replies',
     :author, :contributor,
     :description, :summary, :content, :'content:encoded', :comments,
     :pubDate, :published, :updated, :expirationDate, :modified, :'dc:date', :'dc:subject',
@@ -133,6 +133,10 @@ class RRSimpleRSS
             item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
           elsif tag == :keywords
             item[tag] = match[3].scan(%r{<(rss:|atom:)?dc:subject rdf:type="keywords"(.*?)>(.*?)<\/(rss:|atom:)?dc:subject>}mi).map {|x| x[2].gsub(";", ",") }
+          elsif tag == :linkbbc
+            match[3] =~ %r{<(rss:|atom:)?link(.*?)/\s*>}mi
+            $2 =~ %r{href=(.*?)rel}
+            item[tag] = $1.nil? ? nil : $1[1..$1.length-3]
           else
             item[clean_tag(tag)] = clean_content(tag, $2, $3) if $2 || $3
           end
@@ -160,9 +164,6 @@ class RRSimpleRSS
         unescape(content.gsub(/<.*?>/,''))
       when :"full-text"
         CGI.unescapeHTML unescape(content.gsub(/<.*?>/,'')).force_encoding("UTF-8")
-      when :link
-        "#{attrs} " =~ /href=['"]?([^'"]*)['" ]/mi
-        $1
       else
         content.empty? && "#{attrs} " =~ /href=['"]?([^'"]*)['" ]/mi ? $1.strip : unescape(content)
     end

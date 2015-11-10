@@ -80,13 +80,14 @@ class BaseTest < Test::Unit::TestCase
     assert_equal 3, @rss_bbc2.items.size
     assert_equal "BBCBrasil.com | Notícias", @rss_bbc2.title.force_encoding("UTF-8")
     assert_equal "http://www.bbc.com/portuguese/full_all.xml", @rss_bbc2.channel.link
-    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151109_catacumbas_paris_brasileiro_cc", @rss_bbc2.items.first.link
-    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151109_catacumbas_paris_brasileiro_cc", @rss_bbc2.items.first[:link]
+    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151109_catacumbas_paris_brasileiro_cc", @rss_bbc2.items.first.linkbbc
+    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151109_catacumbas_paris_brasileiro_cc", @rss_bbc2.items.first[:linkbbc]
     assert_equal Time.parse("2015-11-09 16:40:33 -0200"), @rss_bbc2.items.first.updated
     assert_equal Time.parse("2015-11-09 13:29:35 -0200"), @rss_bbc2.channel.updated
     assert_not_nil @rss_bbc2.items.first.content
     assert_nil @rss_bbc2.items.first.category.first
     assert_kind_of Array, @rss_bbc2.items.first.keywords
+    assert_equal "internacional", @rss_bbc2.items.first.keywords[0].split(", ").first
   end
 
   def test_rss09
