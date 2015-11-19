@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "rrsimple-rss"
-  s.version = "1.3.8"
+  s.version = "1.3.9"
   s.date = Time.now.strftime("%Y-%m-%d")
   s.summary = "A simple, flexible, extensible, and liberal RSS and Atom reader for Ruby. It is designed to be backwards compatible with the standard RSS parser, but will never do RSS generation."
   s.email = "rodrigo@rrmartins.com"
