@@ -131,9 +131,19 @@ class RRSimpleRSS
           end
 
           if tag == :category
-            item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
+            if self.channel.link.include?("bbc.com")
+              item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag} label=(.*?)>}mi).map {|x| categorybbc(x[1]) }
+            else
+              item[tag] = match[3].scan(%r{<(rss:|atom:)?#{tag}(.*?)>(.*?)</(rss:|atom:)?#{tag}>}mi).map {|x| category(x[2])}
+            end
           elsif tag == :keywords
-            item[tag] = match[3].scan(%r{<(rss:|atom:)?dc:subject rdf:type="keywords"(.*?)>(.*?)<\/(rss:|atom:)?dc:subject>}mi).map {|x| x[2].gsub(";", ",") }
+            if self.channel.link.include?("bbc.com")
+              keys = match[3].scan(%r{<(rss:|atom:)?dc:subject rdf:type="keywords"(.*?)>(.*?)<\/(rss:|atom:)?dc:subject>}mi)
+              item[tag] = keys.empty? ? [] : keys[0][2].split("; ")
+              item[:category].map { |x| item[tag] << x }
+            else
+              item[tag] = match[3].scan(%r{<(rss:|atom:)?dc:subject rdf:type="keywords"(.*?)>(.*?)<\/(rss:|atom:)?dc:subject>}mi).map {|x| x[2].gsub(";", ",") }
+            end
           elsif tag == :linkbbc
             match[3] =~ %r{<(rss:|atom:)?link(.*?)/\s*>}mi
             $2 =~ %r{href=(.*?)rel}
@@ -150,6 +160,10 @@ class RRSimpleRSS
       @items << item
     end
 
+  end
+
+  def categorybbc(str)
+    str.split(" ").first
   end
 
   def category(str)
