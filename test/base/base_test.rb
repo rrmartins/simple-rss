@@ -9,6 +9,7 @@ class BaseTest < Test::Unit::TestCase
     @rss_prnews = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/prnews.xml')
     @rss_bbc    = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc.xml')
     @rss_bbc2   = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc2.xml')
+    @rss_bbc3   = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/bbc3.xml')
     @rss_baboo  = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/baboo.xml')
     @rss09      = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss09.rdf')
     @rss20      = RRSimpleRSS.parse open(File.dirname(__FILE__) + '/../data/rss20.xml')
@@ -17,8 +18,9 @@ class BaseTest < Test::Unit::TestCase
   end
 
   def test_channel
+    assert_equal @rss_bbc,   @rss_bbc.channel
     assert_equal @rss_bbc2,   @rss_bbc2.channel
-    assert_equal @rss_bbc,    @rss_bbc.channel
+    assert_equal @rss_bbc3,    @rss_bbc3.channel
     assert_equal @rss09,      @rss09.channel
     assert_equal @rss20,      @rss20.channel
     assert_equal @atom,       @atom.feed
@@ -30,6 +32,7 @@ class BaseTest < Test::Unit::TestCase
     assert_kind_of Array, @rss_baboo.items
     assert_kind_of Array, @rss_bbc.items
     assert_kind_of Array, @rss_bbc2.items
+    assert_kind_of Array, @rss_bbc3.items
     assert_kind_of Array, @rss09.items
     assert_kind_of Array, @rss20.items
     assert_kind_of Array, @atom.entries
@@ -85,9 +88,24 @@ class BaseTest < Test::Unit::TestCase
     assert_equal Time.parse("2015-11-09 16:40:33 -0200"), @rss_bbc2.items.first.updated
     assert_equal Time.parse("2015-11-09 13:29:35 -0200"), @rss_bbc2.channel.updated
     assert_not_nil @rss_bbc2.items.first.content
-    assert_nil @rss_bbc2.items.first.category.first
+    assert_not_nil @rss_bbc2.items.first.category.first
     assert_kind_of Array, @rss_bbc2.items.first.keywords
     assert_equal "internacional", @rss_bbc2.items.first.keywords[0].split(", ").first
+  end
+
+  def test_rss_bbc3
+    assert_equal 88, @rss_bbc3.items.size
+    assert_equal "BBCBrasil.com | NotÃ­cias", @rss_bbc3.title.force_encoding("UTF-8")
+    assert_equal "http://www.bbc.com/portuguese/full_all.xml", @rss_bbc3.channel.link
+    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151130_dilma_cervero_cop_lab_rm", @rss_bbc3.items.first.linkbbc
+    assert_equal "http://www.bbc.com/portuguese/noticias/2015/11/151130_dilma_cervero_cop_lab_rm", @rss_bbc3.items.first[:linkbbc]
+    assert_equal Time.parse("2015-11-30 18:41:31 -0200"), @rss_bbc3.items.first.updated
+    assert_equal Time.parse("2015-11-30 18:41:31 -0200"), @rss_bbc3.channel.updated
+    assert_not_nil @rss_bbc3.items.first.content
+    assert_not_nil @rss_bbc3.items.first.category.first
+    assert_kind_of Array, @rss_bbc3.items.first.category
+    assert_kind_of Array, @rss_bbc3.items.first.keywords
+    assert_equal "brasil", @rss_bbc3.items.first.keywords[0].split(", ").first
   end
 
   def test_rss09
